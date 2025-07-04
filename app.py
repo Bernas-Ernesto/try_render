@@ -12,12 +12,12 @@ def homepage():
 def get_books():
     init_db()
     books = view_book()
-    if not books:
-        return jsonify({"message": "No books found in the database."}), 404
+    if not books: 
+        return jsonify({"message": "No Books found."}), 404
     dictionary_books = [
-        {"id": book[0], "title": book[1], "author": book[2]} for book in books
+        {"id": book[0], "title": book[1], "author": book[2]} for book in books 
     ]
-    return jsonify(dictionary_books), 200
+    return jsonify (dictionary_books), 200
 
 @app.route('/books/<title>/<author>', methods=['POST'])
 def post_book_with_params(title, author):
@@ -69,4 +69,4 @@ def search_book(book_id, books):
     return None
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug = True)
