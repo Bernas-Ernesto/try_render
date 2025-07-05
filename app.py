@@ -1,11 +1,11 @@
 from flask import Flask, jsonify, request
 from database import init_db, view_book, add_book, update_book, delete_book
 
-group_name = "MAMBA"
 app = Flask(__name__)
 
 @app.route('/')
 def homepage():
+    group_name = "MAMBA"
     return f"Homepage, Welcome!{group_name}"
 
 @app.route('/books', methods=['GET'])
